@@ -1,5 +1,5 @@
 ---
 title: "Agentic AI in Healthcare"
-summary: "Applied exploration of agentic patterns for healthcare use cases, with focus on reliability, traceability, and practical integration into real workflows."
+summary: "Work on agentic AI approaches for healthcare use cases, with focus on reliability, traceability, and workflow fit."
 order: 2
 ---

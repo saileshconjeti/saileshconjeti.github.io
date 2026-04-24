@@ -1,5 +1,5 @@
 ---
 title: "Radiology AI"
-summary: "Product and technical work in radiology AI domains supporting image interpretation workflows and reporting processes."
+summary: "Product work in radiology AI for image analysis and reporting workflows, including regulated clinical software contexts."
 order: 4
 ---

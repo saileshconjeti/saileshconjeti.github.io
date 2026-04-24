@@ -1,5 +1,5 @@
 ---
 title: "Endoscopy Workflow Management"
-summary: "Design and delivery of software capabilities that support procedure workflows, documentation quality, and operational coordination in endoscopy environments."
+summary: "Product work focused on endoscopy workflow management, including reporting, documentation, automation, and hospital system interoperability."
 order: 1
 ---
