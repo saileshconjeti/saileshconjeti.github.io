@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+---
+
+<BaseLayout
+  title="CV"
+  description="Public-safe CV summary for Sailesh Conjeti."
+>
+  <Section title="CV Summary">
+    <div class="card">
+      <p>
+        Public summary of background and areas of work. Private contact details are intentionally not
+        included on this page.
+      </p>
+    </div>
+  </Section>
+
+  <Section title="Profile">
+    <div class="item">
+      <p>
+        Digital health and AI professional working across medical device software, endoscopy
+        workflows, radiology AI, and medical image computing.
+      </p>
+    </div>
+  </Section>
+
+  <Section title="Experience Highlights">
+    <div class="list">
+      <article class="item">
+        <h3>Olympus</h3>
+        <p>Work spanning endoscopy workflow management and intelligent endoscopy product areas.</p>
+      </article>
+      <article class="item">
+        <h3>Siemens Healthineers</h3>
+        <p>Contributions in radiology AI products including AI-Rad Companion domains.</p>
+      </article>
+      <article class="item">
+        <h3>Medical Image Computing</h3>
+        <p>Research and applied work in machine learning for medical imaging and multimodal analysis.</p>
+      </article>
+    </div>
+  </Section>
+
+  <Section title="Teaching">
+    <div class="item">
+      <h3>Hamburg University of Applied Sciences</h3>
+      <p>Generative and Agentic AI course with practical and responsible usage focus.</p>
+    </div>
+  </Section>
+</BaseLayout>

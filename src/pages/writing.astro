@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import { getCollection } from 'astro:content';
+
+const writing = (await getCollection('writing')).sort((a, b) => {
+  const dateA = a.data.date ? a.data.date.getTime() : 0;
+  const dateB = b.data.date ? b.data.date.getTime() : 0;
+  return dateB - dateA;
+});
+---
+
+<BaseLayout
+  title="Writing"
+  description="Articles and recurring topics on healthcare AI, product execution, and medical software."
+>
+  <Section title="Writing">
+    <div class="card">
+      <p>
+        This page collects articles and recurring topics around healthcare AI, product delivery, and
+        clinical software systems.
+      </p>
+    </div>
+
+    <div class="list section">
+      {writing.map((entry) => (
+        <article class="item">
+          <h3>{entry.data.title}</h3>
+          {entry.data.date && <p class="meta">{entry.data.date.toISOString().slice(0, 10)}</p>}
+          <p>{entry.data.summary}</p>
+        </article>
+      ))}
+    </div>
+  </Section>
+</BaseLayout>

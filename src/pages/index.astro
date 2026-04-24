@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProfileCard from '../components/ProfileCard.astro';
+import Section from '../components/Section.astro';
+---
+
+<BaseLayout
+  title="About"
+  description="Sailesh Conjeti works on digital health products, medical device software, endoscopy workflow management, radiology AI, medical image computing, and generative/agentic AI in healthcare."
+>
+  <ProfileCard imageSrc="/images/Sailesh_Conjeti.png" imageAlt="Portrait of Sailesh Conjeti" />
+
+  <Section title="About">
+    <div class="card">
+      <p>
+        I work at the intersection of healthcare, software, and AI. My work spans product strategy,
+        product development, and applied AI for medical workflows.
+      </p>
+      <p>
+        Over the years, I have contributed across Olympus and Siemens Healthineers on endoscopy and
+        radiology platforms, including AI-enabled products and clinical workflow software.
+      </p>
+      <p>
+        My background is in medical image computing research, and I also teach practical Generative
+        and Agentic AI topics in higher education.
+      </p>
+    </div>
+  </Section>
+
+  <Section title="Focus Areas">
+    <div class="list">
+      <article class="item">
+        <h3>Digital Health Products</h3>
+        <p class="meta">Medical software and product delivery aligned with clinical value and usability.</p>
+      </article>
+      <article class="item">
+        <h3>Endoscopy Workflow and Intelligence</h3>
+        <p class="meta">Workflow management and AI support for endoscopy environments.</p>
+      </article>
+      <article class="item">
+        <h3>Radiology and Medical Imaging AI</h3>
+        <p class="meta">Applied machine learning for imaging use cases in clinical practice.</p>
+      </article>
+      <article class="item">
+        <h3>Generative and Agentic AI in Healthcare</h3>
+        <p class="meta">Safe, practical use of modern AI systems for clinical and operational workflows.</p>
+      </article>
+    </div>
+  </Section>
+</BaseLayout>

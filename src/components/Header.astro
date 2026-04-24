@@ -1,0 +1,21 @@
+---
+const navItems = [
+  { href: '/', label: 'About' },
+  { href: '/products', label: 'Products' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/publications', label: 'Publications' },
+  { href: '/patents', label: 'Patents' },
+  { href: '/teaching', label: 'Teaching' },
+  { href: '/writing', label: 'Writing' },
+  { href: '/cv', label: 'CV' }
+];
+---
+
+<header class="site-header">
+  <div class="container inner">
+    <a class="brand" href="/">Sailesh Conjeti</a>
+    <nav class="nav" aria-label="Primary navigation">
+      {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+  </div>
+</header>

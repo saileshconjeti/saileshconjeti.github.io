@@ -1,0 +1,23 @@
+---
+interface Props {
+  imageSrc: string;
+  imageAlt: string;
+}
+
+const { imageSrc, imageAlt } = Astro.props;
+---
+
+<section class="card profile-grid">
+  <img class="profile-img" src={imageSrc} alt={imageAlt} loading="lazy" />
+  <div>
+    <h1>Sailesh Conjeti</h1>
+    <p>
+      Product and AI leader in digital health, with experience across medical device software,
+      endoscopy workflows, radiology AI, and medical image computing.
+    </p>
+    <p class="meta">
+      Experience includes Olympus and Siemens Healthineers, with ongoing focus on practical and
+      safe use of generative and agentic AI in healthcare.
+    </p>
+  </div>
+</section>

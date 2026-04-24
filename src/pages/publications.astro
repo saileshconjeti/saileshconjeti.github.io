@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import { getCollection } from 'astro:content';
+
+const publications = (await getCollection('publications')).sort((a, b) => {
+  const dateA = a.data.date ? a.data.date.getTime() : 0;
+  const dateB = b.data.date ? b.data.date.getTime() : 0;
+  return dateB - dateA;
+});
+---
+
+<BaseLayout
+  title="Publications"
+  description="Selected publications relevant to medical image computing and AI."
+>
+  <Section title="Publications">
+    <div class="list">
+      {publications.map((publication) => (
+        <article class="item">
+          <h3>{publication.data.title}</h3>
+          <p class="meta">
+            {publication.data.venue}{publication.data.date ? ` · ${publication.data.date.getFullYear()}` : ''}
+          </p>
+          {publication.data.citation && <p>{publication.data.citation}</p>}
+          {publication.data.url && (
+            <p>
+              <a href={publication.data.url} rel="noopener noreferrer" target="_blank">View publication</a>
+            </p>
+          )}
+        </article>
+      ))}
+    </div>
+  </Section>
+</BaseLayout>
