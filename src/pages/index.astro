@@ -8,10 +8,12 @@ import Section from '../components/Section.astro';
   title="About"
   description="Sailesh Conjeti works on digital health products, medical device software, and applied AI in healthcare."
 >
-  <ProfileCard imageSrc="/images/Sailesh_Conjeti.png" imageAlt="Portrait of Sailesh Conjeti" />
+  <div class="home-hero">
+    <ProfileCard imageSrc="/images/Sailesh_Conjeti.png" imageAlt="Portrait of Sailesh Conjeti" />
+  </div>
 
   <Section title="About">
-    <div class="card">
+    <div class="card home-summary">
       <p>
         I work on digital health products, medical device software, and applied AI in healthcare.
       </p>
@@ -35,7 +37,7 @@ import Section from '../components/Section.astro';
   </Section>
 
   <Section title="Focus Areas">
-    <div class="list">
+    <div class="list home-focus">
       <article class="item">
         <h3>Digital Health Products</h3>
         <p class="meta">Product development for healthcare software and clinical workflows.</p>
