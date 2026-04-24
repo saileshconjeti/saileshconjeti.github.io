@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout
+  title="Projects"
+  description="Selected projects in endoscopy workflow software, healthcare AI, and teaching resources."
+>
+  <Section title="Projects">
+    <div class="list">
+      {projects.map((project) => (
+        <article class="item">
+          <h3>{project.data.title}</h3>
+          <p>{project.data.summary}</p>
+        </article>
+      ))}
+    </div>
+  </Section>
+</BaseLayout>
