@@ -1,5 +1,5 @@
 ---
 title: "Healthcare Interoperability"
-summary: "Topic placeholder for future writing on healthcare interoperability and integration."
+summary: "Notes on healthcare interoperability and integration patterns in production clinical systems."
 topic: "Healthcare interoperability"
 ---

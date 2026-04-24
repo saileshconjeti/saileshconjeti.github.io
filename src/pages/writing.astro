@@ -26,7 +26,7 @@ const topics = [
   <Section title="Writing">
     <div class="card">
       <p>
-        I write about applied healthcare AI and implementation topics. Current focus areas:
+        I write about applied healthcare AI and implementation topics. Current focus areas include:
       </p>
       <ul>
         {topics.map((topic) => <li>{topic}</li>)}
@@ -43,7 +43,7 @@ const topics = [
           )}
           {entry.data.date && <p class="meta">{entry.data.date.toISOString().slice(0, 10)}</p>}
           <p>{entry.data.summary}</p>
-          {!entry.data.url && <p class="meta">Topic placeholder</p>}
+          {entry.data.topic && <p class="meta">Topic: {entry.data.topic}</p>}
         </article>
       ))}
     </div>

@@ -1,5 +1,5 @@
 ---
 title: "Agentic AI in Healthcare"
-summary: "Topic placeholder for future writing on agentic AI patterns in healthcare workflows."
+summary: "Notes on agentic AI patterns in healthcare workflows, including reliability and clinical fit."
 topic: "Agentic AI in healthcare"
 ---
