@@ -8,26 +8,42 @@ const writing = (await getCollection('writing')).sort((a, b) => {
   const dateB = b.data.date ? b.data.date.getTime() : 0;
   return dateB - dateA;
 });
+
+const topics = [
+  'AI-enabled medical products',
+  'Endoscopy workflow transformation',
+  'Agentic AI in healthcare',
+  'Regulated AI and medical device software',
+  'Healthcare interoperability',
+  'AI education and prototyping'
+];
 ---
 
 <BaseLayout
   title="Writing"
-  description="Articles and recurring topics on healthcare AI, product execution, and medical software."
+  description="Writing topics on healthcare AI, medical software, and applied prototyping."
 >
   <Section title="Writing">
     <div class="card">
       <p>
-        This page collects articles and recurring topics around healthcare AI, product delivery, and
-        clinical software systems.
+        I write about applied healthcare AI and implementation topics. Current focus areas:
       </p>
+      <ul>
+        {topics.map((topic) => <li>{topic}</li>)}
+      </ul>
     </div>
 
     <div class="list section">
       {writing.map((entry) => (
         <article class="item">
-          <h3>{entry.data.title}</h3>
+          {entry.data.url ? (
+            <h3><a href={entry.data.url}>{entry.data.title}</a></h3>
+          ) : (
+            <h3>{entry.data.title}</h3>
+          )}
           {entry.data.date && <p class="meta">{entry.data.date.toISOString().slice(0, 10)}</p>}
           <p>{entry.data.summary}</p>
+          {!entry.data.url && <p class="meta">Topic placeholder</p>}
         </article>
       ))}
     </div>
