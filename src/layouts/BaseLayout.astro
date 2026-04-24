@@ -12,6 +12,7 @@ const { title, description } = Astro.props;
 const pageTitle = `${title} | Sailesh Conjeti`;
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 const ogImage = new URL('/images/Sailesh_Conjeti.png', Astro.site).toString();
+const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
@@ -35,7 +36,7 @@ const ogImage = new URL('/images/Sailesh_Conjeti.png', Astro.site).toString();
     <meta name="twitter:image" content={ogImage} />
   </head>
   <body>
-    <Header />
+    <Header currentPath={currentPath} />
     <main>
       <div class="container">
         <slot />

@@ -14,7 +14,10 @@ const publications = (await getCollection('publications')).sort((a, b) => {
   title="Publications"
   description="Selected publications relevant to medical image computing and AI."
 >
-  <Section title="Publications">
+  <Section title="Selected Publications">
+    <p>
+      This page lists selected publications only. A full and continuously updated list is maintained on Google Scholar.
+    </p>
     <div class="list">
       {publications.map((publication) => (
         <article class="item">

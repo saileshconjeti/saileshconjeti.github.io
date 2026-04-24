@@ -1,4 +1,10 @@
 ---
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props;
+
 const navItems = [
   { href: '/', label: 'About' },
   { href: '/products', label: 'Products' },
@@ -15,7 +21,14 @@ const navItems = [
   <div class="container inner">
     <a class="brand" href="/">Sailesh Conjeti</a>
     <nav class="nav" aria-label="Primary navigation">
-      {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+      {navItems.map((item) => {
+        const isActive = item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href);
+        return (
+          <a class="nav-link" href={item.href} aria-current={isActive ? 'page' : undefined}>
+            {item.label}
+          </a>
+        );
+      })}
     </nav>
   </div>
 </header>
