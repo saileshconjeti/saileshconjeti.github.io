@@ -1,38 +1,294 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
-import { getCollection } from 'astro:content';
 
-const publications = (await getCollection('publications')).sort((a, b) => {
-  const dateA = a.data.date ? a.data.date.getTime() : 0;
-  const dateB = b.data.date ? b.data.date.getTime() : 0;
-  return dateB - dateA;
-});
+type PublicationLink = {
+  label: string;
+  url: string;
+};
+
+type Publication = {
+  title: string;
+  authors: string;
+  venue: string;
+  year: number;
+  summary: string;
+  links: PublicationLink[];
+};
+
+const scholarProfile = 'https://scholar.google.com/citations?user=C4eOUHsAAAAJ';
+
+const selectedPublications: Publication[] = [
+  {
+    title: 'FastSurfer: A Fast and Accurate Deep Learning Based Neuroimaging Pipeline',
+    authors: 'Henschel, L., Conjeti, S., Estrada, S., et al.',
+    venue: 'NeuroImage',
+    year: 2020,
+    summary: 'Fast deep-learning pipeline for structural neuroimaging analysis.',
+    links: [
+      { label: 'DOI', url: 'https://doi.org/10.1016/j.neuroimage.2020.117012' },
+      { label: 'Publisher', url: 'https://www.sciencedirect.com/science/article/pii/S1053811920305359' },
+      { label: 'Google Scholar', url: 'https://scholar.google.com/scholar?q=FastSurfer+A+Fast+and+Accurate+Deep+Learning+Based+Neuroimaging+Pipeline' }
+    ]
+  },
+  {
+    title: 'QuickNAT: A Fully Convolutional Network for Quick and Accurate Segmentation of Neuroanatomy',
+    authors: 'Guha Roy, A., Conjeti, S., Navab, N., Wachinger, C.',
+    venue: 'NeuroImage',
+    year: 2019,
+    summary: 'Whole-brain MRI segmentation with strong speed and accuracy trade-offs.',
+    links: [
+      { label: 'DOI', url: 'https://doi.org/10.1016/j.neuroimage.2018.11.042' },
+      { label: 'Publisher', url: 'https://www.sciencedirect.com/science/article/pii/S1053811918319776' },
+      { label: 'Google Scholar', url: 'https://scholar.google.com/scholar?q=QuickNAT+A+fully+convolutional+network+for+quick+and+accurate+segmentation+of+neuroanatomy' }
+    ]
+  },
+  {
+    title:
+      'ReLayNet: Retinal Layer and Fluid Segmentation of Macular Optical Coherence Tomography Using Fully Convolutional Networks',
+    authors: 'Guha Roy, A., Conjeti, S., Karri, S. P. K., et al.',
+    venue: 'Biomedical Optics Express',
+    year: 2017,
+    summary: 'Retinal OCT layer and fluid segmentation using FCNs.',
+    links: [
+      { label: 'DOI', url: 'https://doi.org/10.1364/BOE.8.003627' },
+      { label: 'PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=ReLayNet+retinal+layer+and+fluid+segmentation' },
+      { label: 'Publisher', url: 'https://opg.optica.org/boe/fulltext.cfm?uri=boe-8-8-3627' }
+    ]
+  },
+  {
+    title: 'FatSegNet: A Fully Automated Deep Learning Pipeline for Adipose Tissue Segmentation on Abdominal Dixon MRI',
+    authors: 'Estrada, S., Lu, R., Conjeti, S., Reuter, M.',
+    venue: 'Magnetic Resonance in Medicine',
+    year: 2019,
+    summary: 'Automated VAT/SAT segmentation and quantification for abdominal MRI.',
+    links: [
+      { label: 'DOI', url: 'https://doi.org/10.1002/mrm.28022' },
+      { label: 'PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=FatSegNet+A+Fully+Automated+Deep+Learning+Pipeline+for+Adipose+Tissue+Segmentation+on+Abdominal+Dixon+MRI' },
+      { label: 'Publisher', url: 'https://onlinelibrary.wiley.com/doi/10.1002/mrm.28022' }
+    ]
+  },
+  {
+    title: 'Metric Hashing Forests',
+    authors: 'Conjeti, S., Katouzian, A., Kazi, A., et al.',
+    venue: 'Medical Image Analysis',
+    year: 2016,
+    summary: 'Supervised random-forest hashing for scalable nearest-neighbor image retrieval.',
+    links: [
+      { label: 'DOI', url: 'https://doi.org/10.1016/j.media.2016.05.010' },
+      { label: 'Publisher', url: 'https://www.sciencedirect.com/science/article/pii/S1361841516300704' },
+      { label: 'Google Scholar', url: 'https://scholar.google.com/scholar?q=Metric+hashing+forests' }
+    ]
+  },
+  {
+    title: 'Deep Multiple Instance Hashing for Scalable Medical Image Retrieval',
+    authors: 'Conjeti, S., Paschali, M., Katouzian, A., Navab, N.',
+    venue: 'MICCAI (LNCS)',
+    year: 2017,
+    summary: 'Weakly supervised multiple-instance hashing for large-scale medical image retrieval.',
+    links: [
+      { label: 'DBLP', url: 'https://dblp.org/search?q=Deep%20multiple%20instance%20hashing%20for%20scalable%20medical%20image%20retrieval' },
+      { label: 'Google Scholar', url: 'https://scholar.google.com/scholar?q=Deep+multiple+instance+hashing+for+scalable+medical+image+retrieval' }
+    ]
+  },
+  {
+    title:
+      'Neuron-Miner: An Advanced Tool for Morphological Search and Retrieval in Neuroscientific Image Databases',
+    authors: 'Conjeti, S., Mesbah, S., Negahdar, M., et al.',
+    venue: 'Neuroinformatics',
+    year: 2016,
+    summary: 'System for morphology-centric search and retrieval in neuroscientific image databases.',
+    links: [
+      { label: 'DOI', url: 'https://doi.org/10.1007/s12021-016-9300-2' },
+      { label: 'PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=Neuron-Miner+An+Advanced+Tool+for+Morphological+Search+and+Retrieval+in+Neuroscientific+Image+Databases' },
+      { label: 'Publisher', url: 'https://link.springer.com/article/10.1007/s12021-016-9300-2' }
+    ]
+  },
+  {
+    title:
+      'Supervised Domain Adaptation of Decision Forests: Transfer of Models Trained In Vitro for In Vivo Intravascular Ultrasound Tissue Characterization',
+    authors: 'Conjeti, S., Katouzian, A., Guha Roy, A., et al.',
+    venue: 'Medical Image Analysis',
+    year: 2016,
+    summary: 'Domain adaptation strategy to transfer IVUS tissue models across acquisition domains.',
+    links: [
+      { label: 'DOI', url: 'https://doi.org/10.1016/j.media.2016.02.005' },
+      { label: 'PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=Supervised+domain+adaptation+of+decision+forests+Transfer+of+models+trained+in+vitro+for+in+vivo+intravascular+ultrasound+tissue+characterization' },
+      { label: 'Publisher', url: 'https://www.sciencedirect.com/science/article/pii/S1361841516300224' }
+    ]
+  },
+  {
+    title: 'An Artificial Intelligence-Based Chest X-ray Model on Human Nodule Detection Accuracy From a Multicenter Study',
+    authors: 'Homayounieh, F., Digumarthy, S., Ebrahimian, S., et al.',
+    venue: 'JAMA Network Open',
+    year: 2021,
+    summary: 'Multicenter evaluation of AI support for pulmonary nodule detection on chest radiography.',
+    links: [
+      { label: 'DOI', url: 'https://doi.org/10.1001/jamanetworkopen.2021.41096' },
+      { label: 'PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=An+Artificial+Intelligence-Based+Chest+X-ray+Model+on+Human+Nodule+Detection+Accuracy+From+a+Multicenter+Study' },
+      { label: 'Publisher', url: 'https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2787970' }
+    ]
+  },
+  {
+    title:
+      'Creating a Standardized Tool for the Evaluation and Comparison of AI-Based CADe Programs in Colonoscopy: A Modified Delphi Approach',
+    authors: 'Gadi, S. R. V., Mori, Y., Misawa, M., Conjeti, S., et al.',
+    venue: 'Clinical Endoscopy',
+    year: 2024,
+    summary: 'Consensus-based benchmarking framework for colonoscopy CADe systems.',
+    links: [
+      { label: 'PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=Creating+a+standardized+tool+for+the+evaluation+and+comparison+of+artificial+intelligence-based+computer-aided+detection+programs+in+colonoscopy+a+modified+Delphi+approach' },
+      { label: 'Google Scholar', url: 'https://scholar.google.com/scholar?q=Creating+a+standardized+tool+for+the+evaluation+and+comparison+of+artificial+intelligence-based+computer-aided+detection+programs+in+colonoscopy' },
+      { label: 'Publisher', url: 'https://www.e-ce.org/' }
+    ]
+  }
+];
+
+const broaderByTheme: { theme: string; publications: Publication[] }[] = [
+  {
+    theme: 'Segmentation, Neuroimaging, and Quality Control',
+    publications: [
+      {
+        title:
+          'Bayesian QuickNAT: Model Uncertainty in Deep Whole-Brain Segmentation for Structure-Wise Quality Control',
+        authors: 'Guha Roy, A., Conjeti, S., Navab, N., Wachinger, C.',
+        venue: 'NeuroImage',
+        year: 2019,
+        summary: 'Uncertainty-aware extension of QuickNAT for structure-wise quality control.',
+        links: [
+          { label: 'DOI', url: 'https://doi.org/10.1016/j.neuroimage.2019.03.042' },
+          { label: 'Publisher', url: 'https://www.sciencedirect.com/science/article/pii/S1053811919302829' },
+          { label: 'Google Scholar', url: 'https://scholar.google.com/scholar?q=Bayesian+QuickNAT+Model+uncertainty+in+deep+whole-brain+segmentation+for+structure-wise+quality+control' }
+        ]
+      },
+      {
+        title: 'Inherent Brain Segmentation Quality Control from Fully ConvNet Monte Carlo Sampling',
+        authors: 'Guha Roy, A., Conjeti, S., Navab, N., Wachinger, C.',
+        venue: 'MICCAI (LNCS)',
+        year: 2018,
+        summary: 'Monte Carlo sampling for quality control signals in automated brain segmentation.',
+        links: [
+          { label: 'DBLP', url: 'https://dblp.org/search?q=Inherent%20Brain%20Segmentation%20Quality%20Control%20from%20Fully%20ConvNet%20Monte%20Carlo%20Sampling' },
+          { label: 'Google Scholar', url: 'https://scholar.google.com/scholar?q=Inherent+Brain+Segmentation+Quality+Control+from+Fully+ConvNet+Monte+Carlo+Sampling' }
+        ]
+      }
+    ]
+  },
+  {
+    theme: 'Medical Image Retrieval and Representation Learning',
+    publications: [
+      {
+        title: 'Coupled Manifold Learning for Retrieval Across Modalities',
+        authors: 'Kazi, A., Conjeti, S., Katouzian, A., Navab, N.',
+        venue: 'ICCV Workshop',
+        year: 2017,
+        summary: 'Cross-modal manifold alignment for retrieval across heterogeneous modalities.',
+        links: [
+          { label: 'CVF', url: 'http://openaccess.thecvf.com/content_ICCV_2017_workshops/papers/w21/Kazi_Coupled_Manifold_Learning_ICCV_2017_paper.pdf' },
+          { label: 'DBLP', url: 'https://dblp.org/search?q=Coupled%20Manifold%20Learning%20for%20Retrieval%20Across%20Modalities' },
+          { label: 'Google Scholar', url: 'https://scholar.google.com/scholar?q=Coupled+Manifold+Learning+for+Retrieval+Across+Modalities' }
+        ]
+      },
+      {
+        title: 'Hashing Forests for Morphological Search and Retrieval in Neuroscientific Image Databases',
+        authors: 'Mesbah, S., Conjeti, S., Kumaraswamy, A., et al.',
+        venue: 'MICCAI (LNCS)',
+        year: 2015,
+        summary: 'Conference-stage retrieval work that later matured into Neuron-Miner.',
+        links: [
+          { label: 'DBLP', url: 'https://dblp.org/search?q=Hashing%20Forests%20for%20Morphological%20Search%20and%20Retrieval%20in%20Neuroscientific%20Image%20Databases' },
+          { label: 'Google Scholar', url: 'https://scholar.google.com/scholar?q=Hashing+Forests+for+Morphological+Search+and+Retrieval+in+Neuroscientific+Image+Databases' }
+        ]
+      }
+    ]
+  },
+  {
+    theme: 'Robustness, Validation, and Clinical AI Evaluation',
+    publications: [
+      {
+        title: 'Generalizability vs. Robustness: Investigating Medical Imaging Networks Using Adversarial Examples',
+        authors: 'Paschali, M., Conjeti, S., Navarro, F., Navab, N.',
+        venue: 'MICCAI (LNCS)',
+        year: 2018,
+        summary: 'Systematic robustness analysis for medical imaging networks under adversarial perturbations.',
+        links: [
+          { label: 'arXiv', url: 'https://arxiv.org/abs/1804.00504' },
+          { label: 'Google Scholar', url: 'https://scholar.google.com/scholar?q=Generalizability+vs.+robustness+investigating+medical+imaging+networks+using+adversarial+examples' }
+        ]
+      },
+      {
+        title: 'Adversarial Examples as Benchmark for Medical Imaging Neural Networks',
+        authors: 'Paschali, M., Conjeti, S., Navarro, F., Navab, N.',
+        venue: 'Bildverarbeitung fur die Medizin',
+        year: 2019,
+        summary: 'Benchmark-oriented follow-up record for adversarial evaluation in medical imaging.',
+        links: [
+          { label: 'DOI', url: 'https://doi.org/10.1007/978-3-658-25326-4_4' },
+          { label: 'Google Scholar', url: 'https://scholar.google.com/scholar?q=Adversarial+Examples+as+Benchmark+for+Medical+Imaging+Neural+Networks' }
+        ]
+      }
+    ]
+  }
+];
 ---
 
 <BaseLayout
   title="Publications"
-  description="Selected publications relevant to medical image computing and AI."
+  description="Selected and broader publications across medical image computing, clinical AI evaluation, and workflow-oriented healthcare AI."
 >
-  <Section title="Selected Publications">
+  <Section title="Publications">
     <p>
-      This page lists selected publications only. A full and continuously updated list is maintained on Google Scholar.
+      This page provides a curated publication overview across medical image retrieval,
+      neuroimaging, OCT/IVUS analysis, computational pathology, and clinical AI evaluation.
     </p>
+    <p class="meta">
+      The list is a deduplicated compilation based on <a href={scholarProfile} rel="noopener noreferrer" target="_blank">Google Scholar</a>, PubMed,
+      DBLP, and publisher metadata, and may not be exhaustive.
+    </p>
+  </Section>
+
+  <Section title="Selected Publications">
     <div class="list">
-      {publications.map((publication) => (
+      {selectedPublications.map((publication) => (
         <article class="item">
-          <h3>{publication.data.title}</h3>
+          <h3>{publication.title}</h3>
+          <p class="meta">{publication.authors}. <em>{publication.venue}</em>, {publication.year}.</p>
+          <p>{publication.summary}</p>
           <p class="meta">
-            {publication.data.venue}{publication.data.date ? ` · ${publication.data.date.getFullYear()}` : ''}
+            {publication.links.map((link, index) => (
+              <>
+                {index > 0 ? ' | ' : ''}
+                <a href={link.url} rel="noopener noreferrer" target="_blank">{link.label}</a>
+              </>
+            ))}
           </p>
-          {publication.data.citation && <p>{publication.data.citation}</p>}
-          {publication.data.url && (
-            <p>
-              <a href={publication.data.url} rel="noopener noreferrer" target="_blank">View publication</a>
-            </p>
-          )}
         </article>
       ))}
     </div>
+  </Section>
+
+  <Section title="Broader Publication List (Grouped by Theme)">
+    {broaderByTheme.map((group) => (
+      <div class="section">
+        <h3>{group.theme}</h3>
+        <div class="list">
+          {group.publications.map((publication) => (
+            <article class="item">
+              <h3>{publication.title}</h3>
+              <p class="meta">{publication.authors}. <em>{publication.venue}</em>, {publication.year}.</p>
+              <p>{publication.summary}</p>
+              <p class="meta">
+                {publication.links.map((link, index) => (
+                  <>
+                    {index > 0 ? ' | ' : ''}
+                    <a href={link.url} rel="noopener noreferrer" target="_blank">{link.label}</a>
+                  </>
+                ))}
+              </p>
+            </article>
+          ))}
+        </div>
+      </div>
+    ))}
   </Section>
 </BaseLayout>

@@ -1,45 +1,70 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
+import { existsSync } from 'node:fs';
+
+const cvPdfHref = '/files/sailesh_conjeti_cv.pdf';
+const hasCvPdf = existsSync('public/files/sailesh_conjeti_cv.pdf');
 ---
 
 <BaseLayout
   title="CV"
   description="Public-safe CV summary for Sailesh Conjeti."
 >
-  <Section title="Current focus">
+  <Section title="Professional Summary">
     <div class="item">
       <p>
-        Digital health product leadership, Endoscopy Workflow Management, medical device software,
-        AI-enabled clinical workflows, radiology AI, medical image computing, Generative and Agentic
-        AI, and healthcare interoperability.
+        Medical AI researcher and digital health product leader working at the intersection of
+        medical image computing, clinical workflow AI, and deployable software systems.
+      </p>
+      <p>
+        The profile reflects a path from academic medical imaging research to industry leadership
+        and teaching in generative and agentic AI.
       </p>
     </div>
   </Section>
 
-  <Section title="Experience">
+  <Section title="Current Roles">
     <div class="list">
       <article class="item">
-        <h3>Olympus</h3>
-        <p>Current work focused on Endoscopy Workflow Management and AI-enabled endoscopy workflows.</p>
-      </article>
-      <article class="item">
-        <h3>Siemens Healthineers</h3>
+        <h3>Olympus EMEA (publicly reported)</h3>
         <p>
-          Previous work on AI products for radiology image analysis, including AI-Rad Companion Chest
-          X-ray.
-        </p>
-      </article>
-      <article class="item">
-        <h3>Research</h3>
-        <p>
-          Earlier research experience in medical image computing, computational neuroimaging, digital
-          pathology, and deep learning for medical image analysis.
+          Endoscopy workflow AI leadership focused on workflow-oriented clinical software and
+          applied AI integration.
         </p>
       </article>
       <article class="item">
         <h3>Hamburg University of Applied Sciences</h3>
-        <p>Teaching Generative and Agentic AI.</p>
+        <p>
+          Staff/instructor role, including teaching in Generative and Agentic AI (2025-2026
+          elective activity referenced in public sources).
+        </p>
+      </article>
+    </div>
+  </Section>
+
+  <Section title="Previous Experience">
+    <div class="list">
+      <article class="item">
+        <h3>Siemens Healthineers</h3>
+        <p>
+          Medical AI and digital health product leadership across radiology and reporting-oriented
+          AI programs.
+        </p>
+      </article>
+      <article class="item">
+        <h3>DeepMI / DZNE-Associated Postdoctoral Research</h3>
+        <p>
+          Postdoctoral work following PhD, focused on medical image computing and translational AI
+          research.
+        </p>
+      </article>
+      <article class="item">
+        <h3>Academic Research Track</h3>
+        <p>
+          Contributions across neuroimaging, OCT/IVUS analysis, retrieval methods, segmentation
+          quality control, and computational pathology.
+        </p>
       </article>
     </div>
   </Section>
@@ -47,37 +72,84 @@ import Section from '../components/Section.astro';
   <Section title="Education">
     <div class="list">
       <article class="item">
-        <p>PhD, AI for Medical Image Computing, Technical University of Munich</p>
+        <p>PhD in Medical Imaging Computing, Technical University of Munich (summa cum laude)</p>
       </article>
       <article class="item">
-        <p>M.Tech., Medical Imaging and Informatics, Indian Institute of Technology Kharagpur</p>
+        <p>Graduate study/research in Medical Imaging and Informatics, IIT Kharagpur</p>
       </article>
       <article class="item">
-        <p>B.E., Electrical and Electronics, Birla Institute of Technology and Science Pilani</p>
+        <p>B.E. in Electrical and Electronics Engineering, BITS Pilani</p>
       </article>
     </div>
   </Section>
 
-  <Section title="Selected recognition">
+  <Section title="Selected Awards">
     <div class="list">
       <article class="item">
-        <p>Recognition for invention activity in digital health and AI.</p>
+        <p>Medical Image Analysis Best Paper Award (2016): Metric Hashing Forests</p>
       </article>
       <article class="item">
-        <p>Global AI Thought Leader cohort.</p>
+        <p>MICCAI Young Scientist runner-up recognition (2017, public-profile evidence)</p>
       </article>
       <article class="item">
-        <p>Siemens Healthineers Top Talents program.</p>
+        <p>Siemens Healthineers recognition (2021): Successful Digital Health Inventor</p>
       </article>
       <article class="item">
-        <p>Top Inventor recognition in Digital Health.</p>
-      </article>
-      <article class="item">
-        <p>Best Business Pitch award in an executive education program on AI in healthcare.</p>
-      </article>
-      <article class="item">
-        <p>Best Paper Award in Medical Image Analysis at MICCAI.</p>
+        <p>Siemens Healthineers recognition (2021): Finalist, Most Innovative Project Award</p>
       </article>
     </div>
   </Section>
+
+  <Section title="Research Metrics and Publications">
+    <div class="item">
+      <p>
+        Public profile checks in the research report indicate a broad publication record spanning
+        medical image retrieval, neuroimaging, segmentation, robustness evaluation, and clinical AI.
+      </p>
+      <p>
+        At report check time, ResearchGate listed 87 publication records and 4,260 citations. The
+        report recommends deduplicated interpretation because profile-level counts may include
+        preprint and final variants.
+      </p>
+      <p>
+        Representative works include FastSurfer, QuickNAT, ReLayNet, FatSegNet, Metric Hashing
+        Forests, and Deep Multiple Instance Hashing.
+      </p>
+    </div>
+  </Section>
+
+  <Section title="Patents Summary">
+    <div class="item">
+      <p>
+        Verified public patent portfolio includes six families in medical image metadata
+        generation, image-data evaluation, cue-based reporting assistance, multimodal 2D image
+        analysis, protocol data generation for radiology workflows, and real-time endoscopy scene
+        analysis.
+      </p>
+      <p>
+        Patent families are presented on the patents page in grouped form to avoid jurisdictional
+        duplication.
+      </p>
+    </div>
+  </Section>
+
+  <Section title="Skills and Competencies">
+    <div class="item">
+      <p>
+        Medical image computing, clinical AI evaluation, workflow-oriented healthcare AI, regulated
+        healthcare software, generative and agentic AI systems, retrieval-augmented workflows, AI
+        product strategy, and cross-functional research-to-product translation.
+      </p>
+    </div>
+  </Section>
+
+  {hasCvPdf && (
+    <Section title="Download">
+      <div class="item">
+        <p>
+          <a href={cvPdfHref}>Download PDF CV</a>
+        </p>
+      </div>
+    </Section>
+  )}
 </BaseLayout>

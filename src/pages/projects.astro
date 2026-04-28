@@ -1,23 +1,130 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
-import { getCollection } from 'astro:content';
 
-const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+type ProjectCard = {
+  title: string;
+  description: string;
+  techStack: string;
+  githubUrl: string;
+  whyItMatters: string;
+};
+
+const publicRepositories: ProjectCard[] = [
+  {
+    title: 'Ollama-Tutorials',
+    description:
+      'Hands-on tutorials for local LLM workflows, including structured outputs, embeddings, lightweight RAG, and tool use.',
+    techStack: 'Python, Ollama, Open WebUI',
+    githubUrl: 'https://github.com/saileshconjeti/Ollama-Tutorials',
+    whyItMatters:
+      'Provides reproducible local AI workflows for teaching and experimentation without cloud-only dependencies.'
+  },
+  {
+    title: 'ollama_agentic_ai_tutorials',
+    description:
+      'Step-by-step examples for local agentic AI workflows and educational prototypes.',
+    techStack: 'Python, Ollama, LangChain, LangGraph, Streamlit',
+    githubUrl: 'https://github.com/saileshconjeti/ollama_agentic_ai_tutorials',
+    whyItMatters:
+      'Shows how orchestration patterns, agents, and evaluation loops can be assembled in practical systems.'
+  },
+  {
+    title: 'saileshconjeti.github.io',
+    description:
+      'Source code for this site, including research, publications, patents, and project documentation.',
+    techStack: 'Astro, JavaScript, HTML, SCSS',
+    githubUrl: 'https://github.com/saileshconjeti/saileshconjeti.github.io',
+    whyItMatters:
+      'Maintains a transparent, versioned record connecting publications, patents, teaching, and applied AI work.'
+  }
+];
+
+const appliedProjectAreas: ProjectCard[] = [
+  {
+    title: 'Endoscopy Workflow AI Prototyping',
+    description:
+      'Applied work on AI-supported endoscopy workflows, including reporting support, documentation patterns, and integration concepts.',
+    techStack: 'Python, Workflow Design, Applied AI Prototyping',
+    githubUrl: 'https://github.com/saileshconjeti',
+    whyItMatters:
+      'Targets workflow friction points where AI can improve consistency, documentation quality, and efficiency.'
+  },
+  {
+    title: 'Radiology and Imaging Workflow Support',
+    description:
+      'Applied project area focused on AI-enabled image interpretation support, reporting assistance, and structured outputs.',
+    techStack: 'Medical Imaging AI, Workflow Systems, Evaluation Methods',
+    githubUrl: 'https://github.com/saileshconjeti',
+    whyItMatters:
+      'Emphasizes usable systems design and trustworthy AI integration in imaging workflows.'
+  },
+  {
+    title: 'Healthcare AI Education and Prototyping',
+    description:
+      'Project area combining educational content and practical implementations for generative, retrieval-augmented, and agentic AI in healthcare.',
+    techStack: 'Python, Ollama, LangChain, LangGraph, Streamlit',
+    githubUrl: 'https://github.com/saileshconjeti/Ollama-Tutorials',
+    whyItMatters:
+      'Builds practical capability by connecting core AI methods to reproducible prototypes.'
+  }
+];
 ---
 
 <BaseLayout
   title="Projects"
-  description="Selected projects in endoscopy workflow software, healthcare AI, and teaching resources."
+  description="Public repositories and applied project areas across local LLM workflows, agentic AI, and healthcare AI prototyping."
 >
   <Section title="Projects">
+    <p>
+      This page highlights public repositories and applied project areas.
+    </p>
+    <p class="meta">
+      These projects represent research, teaching, and prototyping work. They are not presented as production medical devices.
+    </p>
+  </Section>
+
+  <Section title="Public Repositories">
     <div class="list">
-      {projects.map((project) => (
+      {publicRepositories.map((project) => (
         <article class="item">
-          <h3>{project.data.title}</h3>
-          <p>{project.data.summary}</p>
+          <h3>{project.title}</h3>
+          <p><strong>Short description:</strong> {project.description}</p>
+          <p><strong>Tech stack:</strong> {project.techStack}</p>
+          <p>
+            <strong>GitHub:</strong>{' '}
+            <a href={project.githubUrl} rel="noopener noreferrer" target="_blank">{project.githubUrl}</a>
+          </p>
+          <p><strong>Why this project matters:</strong> {project.whyItMatters}</p>
         </article>
       ))}
     </div>
+  </Section>
+
+  <Section title="Applied Project Areas">
+    <div class="list">
+      {appliedProjectAreas.map((project) => (
+        <article class="item">
+          <h3>{project.title}</h3>
+          <p><strong>Short description:</strong> {project.description}</p>
+          <p><strong>Tech stack:</strong> {project.techStack}</p>
+          <p>
+            <strong>GitHub:</strong>{' '}
+            <a href={project.githubUrl} rel="noopener noreferrer" target="_blank">{project.githubUrl}</a>
+          </p>
+          <p><strong>Why this project matters:</strong> {project.whyItMatters}</p>
+        </article>
+      ))}
+    </div>
+  </Section>
+
+  <Section title="Applied Interests">
+    <ul>
+      <li>Local LLM workflows</li>
+      <li>Retrieval-augmented generation (RAG)</li>
+      <li>Agentic AI systems</li>
+      <li>Healthcare AI prototyping</li>
+      <li>Evaluation-first AI development</li>
+    </ul>
   </Section>
 </BaseLayout>

@@ -1,58 +1,122 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ProfileCard from '../components/ProfileCard.astro';
 import Section from '../components/Section.astro';
 ---
 
 <BaseLayout
-  title="About"
-  description="Sailesh Conjeti works on digital health products, medical device software, and applied AI in healthcare."
+  title="Home"
+  description="Sailesh Conjeti works on medical AI research, regulated software, and workflow-centered healthcare products."
 >
   <div class="home-hero">
-    <ProfileCard imageSrc="/images/Sailesh_Conjeti.png" imageAlt="Portrait of Sailesh Conjeti" />
+    <section class="card profile-grid">
+      <img class="profile-img" src="/images/Sailesh_Conjeti.png" alt="Portrait of Sailesh Conjeti" loading="lazy" />
+      <div class="profile-copy">
+        <p class="pill">Medical AI</p>
+        <p class="pill">Digital Health</p>
+        <h1>Medical AI for Clinical Workflows</h1>
+        <p class="lead">
+          I build medical AI systems that are usable in real clinical workflows.
+        </p>
+        <p class="meta">
+          My work spans medical imaging, endoscopy workflow systems, regulated software, and
+          generative and agentic AI in healthcare.
+        </p>
+      </div>
+    </section>
   </div>
 
+  <div id="about">
   <Section title="About">
     <div class="card home-summary">
       <p>
-        I work on digital health products, medical device software, and applied AI in healthcare.
+        I set up this site as a practical record of what I build, publish, and teach in medical AI.
+        If you want the short version: I focus on turning strong research ideas into software that
+        clinicians can actually use.
       </p>
       <p>
-        I currently focus on Endoscopy Workflow Management at Olympus, including workflow automation,
-        voice reporting, AI-assisted documentation, structured reporting, and interoperability.
+        You can browse the work by section:
+        <a href="/publications">publications</a>,
+        <a href="/patents">patents</a>,
+        <a href="/projects">projects</a>, and
+        <a href="/teaching">teaching</a>.
+      </p>
+    </div>
+  </Section>
+  </div>
+
+  <Section title="Research Background">
+    <div class="card home-summary">
+      <p>
+        My research background is in medical image computing: retrieval, segmentation and quality
+        control, ophthalmic imaging, and multimodal learning.
       </p>
       <p>
-        Before Olympus, I worked at Siemens Healthineers on AI products for radiology image analysis,
-        including AI-Rad Companion Chest X-ray.
-      </p>
-      <p>
-        My earlier work was in medical image computing research, including computational
-        neuroimaging, digital pathology, retinal imaging, and deep learning for medical image
-        analysis.
-      </p>
-      <p>
-        I also teach Generative and Agentic AI at Hamburg University of Applied Sciences.
+        My doctoral work was at the Technical University of Munich, followed by research
+        contributions in the DeepMI and neuroimaging ecosystem.
+        <a href="/research">See research themes</a> or
+        <a href="/publications">go straight to publication links</a>.
       </p>
     </div>
   </Section>
 
-  <Section title="Focus Areas">
+  <Section title="Industry and Product Leadership">
+    <div class="card home-summary">
+      <p>
+        In industry, I focus on productizing clinical AI and integrating it into radiology and
+        endoscopy workflows, including AI-assisted reporting and workflow tooling.
+      </p>
+      <p>
+        Recent focus areas include endoscopy workflow management and interoperability. Earlier work
+        includes radiology AI programs such as AI-Rad Companion Chest X-ray.
+        <a href="/products">More product context</a>.
+      </p>
+    </div>
+  </Section>
+
+  <Section title="Teaching and Mentoring">
+    <div class="card home-summary">
+      <p>
+        I teach Generative and Agentic AI at Hamburg University of Applied Sciences. My sessions
+        cover foundations, practical prototyping, retrieval-augmented generation, agentic patterns,
+        and evaluation.
+      </p>
+      <p>
+        The approach is implementation-first: students build systems, test failure modes, and learn
+        how to evaluate what actually works. <a href="/teaching">Course topics and approach</a>.
+      </p>
+    </div>
+  </Section>
+
+  <Section title="Snapshot">
     <div class="list home-focus">
       <article class="item">
-        <h3>Digital Health Products</h3>
-        <p class="meta">Product development for healthcare software and clinical workflows.</p>
+        <h3>10 Selected Publications</h3>
+        <p class="meta">
+          Curated papers with DOI, PubMed, and publisher links.
+          <a href="/publications">Browse publications</a>
+        </p>
       </article>
       <article class="item">
-        <h3>Endoscopy Workflow Management</h3>
-        <p class="meta">Workflow automation, voice reporting, AI-assisted documentation, structured reporting, and interoperability.</p>
+        <h3>6 Patent Families</h3>
+        <p class="meta">
+          Medical imaging, reporting, and endoscopy workflow inventions.
+          <a href="/patents">View patents</a>
+        </p>
       </article>
       <article class="item">
-        <h3>Radiology AI</h3>
-        <p class="meta">AI products for radiology image analysis, including AI-Rad Companion Chest X-ray.</p>
+        <h3>Public Profiles</h3>
+        <p class="meta">
+          <a href="https://scholar.google.com/citations?user=C4eOUHsAAAAJ" rel="noopener noreferrer" target="_blank">Google Scholar</a>,
+          <a href="https://www.linkedin.com/in/saileshconjeti/" rel="noopener noreferrer" target="_blank">LinkedIn</a>, and
+          <a href="https://github.com/saileshconjeti" rel="noopener noreferrer" target="_blank">GitHub</a>.
+        </p>
       </article>
       <article class="item">
-        <h3>Medical Image Computing Research and Teaching</h3>
-        <p class="meta">Research across neuroimaging, digital pathology, retinal imaging, and teaching Generative and Agentic AI.</p>
+        <h3>Current Focus</h3>
+        <p class="meta">
+          Workflow-centered clinical AI, regulated software, and practical generative AI adoption
+          in healthcare settings.
+        </p>
       </article>
     </div>
   </Section>

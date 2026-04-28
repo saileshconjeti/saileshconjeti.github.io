@@ -1,33 +1,99 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
+
+type PatentFamily = {
+  title: string;
+  inventors: string;
+  assignee: string;
+  representativeNumber: string;
+  description: string;
+  googlePatentsUrl: string;
+};
+
+const patentFamilies: PatentFamily[] = [
+  {
+    title: 'Method for Providing at Least One Metadata Attribute Associated with Medical Image Data',
+    inventors: 'Sailesh Conjeti, Alexis Laugerette, Christian Hummer',
+    assignee: 'Siemens Healthineers AG',
+    representativeNumber: 'US12322091B2 (family includes US17/671,950)',
+    description:
+      'Infers or assigns metadata attributes associated with medical image data to improve downstream processing and usability.',
+    googlePatentsUrl: 'https://patents.google.com/?q=US12322091B2'
+  },
+  {
+    title: 'Method and Apparatus for the Evaluation of Medical Image Data',
+    inventors: 'Christian Hummer, Sailesh Conjeti, Alexander Preuhs, Lei Wang',
+    assignee: 'Siemens Healthineers AG',
+    representativeNumber: 'US12450733B2 (published as US20220398729A1)',
+    description:
+      'Supports evaluation and classification workflows for medical image data in clinically relevant analysis pipelines.',
+    googlePatentsUrl: 'https://patents.google.com/?q=US12450733B2'
+  },
+  {
+    title: 'Cue-Based Medical Reporting Assistance',
+    inventors: 'Sailesh Conjeti',
+    assignee: 'Siemens Healthineers AG',
+    representativeNumber: 'EP4141878A1 (family includes US20230076903A1)',
+    description:
+      'Uses diagnostic cues during reporting to improve report completeness, consistency, and quality.',
+    googlePatentsUrl: 'https://patents.google.com/?q=EP4141878A1'
+  },
+  {
+    title: 'Automatic Analysis of 2D Medical Image Data with an Additional Object',
+    inventors: 'Christian Hummer, Sven-Martin Sutter, Sailesh Conjeti',
+    assignee: 'Siemens Healthineers AG',
+    representativeNumber: 'US12444047B2 (family includes US17/950,465)',
+    description:
+      'Combines medical image data with additional external image objects to adapt and improve image analysis.',
+    googlePatentsUrl: 'https://patents.google.com/?q=US12444047B2'
+  },
+  {
+    title: 'Method for Generating Protocol Data of a Radiological Image/Report Workflow',
+    inventors: 'Sailesh Conjeti',
+    assignee: 'Siemens Healthineers AG',
+    representativeNumber: 'US20230282337A1 (application US18/175,799)',
+    description:
+      'Generates structured protocol data from radiological image/report workflows to support documentation and peer review.',
+    googlePatentsUrl: 'https://patents.google.com/?q=US20230282337A1'
+  },
+  {
+    title: 'Real-Time Endoscopy Scene Analysis and Photo-Documentation',
+    inventors: 'Sailesh Conjeti',
+    assignee: 'Gyrus ACMI Inc.',
+    representativeNumber: 'WO2025259475A1 (application PCT/US2025/032101)',
+    description:
+      'Performs real-time endoscopy scene understanding, area-of-interest recognition, and guided photo-documentation.',
+    googlePatentsUrl: 'https://patents.google.com/?q=WO2025259475A1'
+  }
+];
 ---
 
 <BaseLayout
   title="Patents"
-  description="Public invention themes related to applied AI in healthcare."
+  description="Verified patent families in medical imaging, clinical reporting, and workflow-oriented healthcare AI."
 >
-  <Section title="Patents">
-    <div class="card">
-      <p>
-        My patent and invention work covers applied AI in healthcare.
-      </p>
-      <p>Main themes include:</p>
-      <ul>
-        <li>AI workflow integration</li>
-        <li>Clinical reporting</li>
-        <li>Medical imaging</li>
-        <li>Clinical natural language processing</li>
-        <li>Healthcare interoperability</li>
-        <li>Workflow orchestration</li>
-        <li>AI-assisted documentation</li>
-        <li>Metadata quality</li>
-        <li>Endoscopy and radiology workflow support</li>
-      </ul>
-      <p>
-        This page currently summarizes invention themes. Public patent references can be added as
-        individual entries after verification.
-      </p>
+  <Section title="Patent Families">
+    <p>
+      This page groups patents by family rather than listing each jurisdictional counterpart.
+    </p>
+    <p class="meta">
+      Entries are a verified subset from the research report and are not necessarily exhaustive.
+    </p>
+
+    <div class="list">
+      {patentFamilies.map((patent) => (
+        <article class="item">
+          <h3>{patent.title}</h3>
+          <p><strong>Inventors:</strong> {patent.inventors}</p>
+          <p><strong>Assignee:</strong> {patent.assignee}</p>
+          <p><strong>Representative publication/grant number:</strong> {patent.representativeNumber}</p>
+          <p><strong>Description:</strong> {patent.description}</p>
+          <p class="meta">
+            <a href={patent.googlePatentsUrl} rel="noopener noreferrer" target="_blank">Google Patents</a>
+          </p>
+        </article>
+      ))}
     </div>
   </Section>
 </BaseLayout>

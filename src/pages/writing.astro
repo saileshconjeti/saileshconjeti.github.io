@@ -26,7 +26,8 @@ const topics = [
   <Section title="Writing">
     <div class="card">
       <p>
-        I write about applied healthcare AI and implementation topics. Current focus areas include:
+        I write about applied healthcare AI, product development, and implementation. Current
+        focus areas include:
       </p>
       <ul>
         {topics.map((topic) => <li>{topic}</li>)}
@@ -37,7 +38,15 @@ const topics = [
       {writing.map((entry) => (
         <article class="item">
           {entry.data.url ? (
-            <h3><a href={entry.data.url}>{entry.data.title}</a></h3>
+            <h3>
+              <a
+                href={entry.data.url}
+                rel={entry.data.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+                target={entry.data.url.startsWith('http') ? '_blank' : undefined}
+              >
+                {entry.data.title}
+              </a>
+            </h3>
           ) : (
             <h3>{entry.data.title}</h3>
           )}

@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+---
+
+<BaseLayout
+  title="Research"
+  description="Research themes across medical image computing, clinical AI evaluation, workflow-oriented healthcare AI, and generative/agentic AI."
+>
+  <Section title="Research Themes">
+    <div class="card">
+      <p>
+        This page summarizes research themes at the boundary of medical image computing, clinical
+        AI productization, and healthcare workflow systems.
+      </p>
+      <p>
+        The themes are written for both academic and industry audiences, with links to selected
+        outputs across publications and projects.
+      </p>
+    </div>
+
+    <div class="list section">
+      <article class="item">
+        <h3>1. Medical Image Retrieval and Representation Learning</h3>
+        <p>
+          Focused on scalable retrieval and representation learning for clinical and biomedical
+          image collections, including metric- and hashing-based approaches.
+        </p>
+        <p class="meta">
+          Representative methods and systems include Metric Hashing Forests, Deep Multiple
+          Instance Hashing, and Neuron-Miner.
+        </p>
+        <p>
+          <a href="/publications">See related publications</a>
+        </p>
+      </article>
+
+      <article class="item">
+        <h3>2. Segmentation, Uncertainty, and Neuroimaging Pipelines</h3>
+        <p>
+          Combines efficient segmentation with structure-wise quality control and uncertainty
+          estimation for neuroimaging workflows.
+        </p>
+        <p class="meta">
+          Representative systems include QuickNAT, Bayesian QuickNAT, and FastSurfer.
+        </p>
+        <p>
+          <a href="/publications">See related publications</a>
+        </p>
+      </article>
+
+      <article class="item">
+        <h3>3. Multimodal Imaging and Computational Pathology</h3>
+        <p>
+          Addresses multimodal learning and cross-modal analysis across OCT, MRI, pathology, and
+          related domains, including registration and whole-slide analysis.
+        </p>
+        <p class="meta">
+          Representative contributions include ReLayNet and multimodal registration methods used in
+          pathology and image alignment workflows.
+        </p>
+        <p>
+          <a href="/publications">See related publications</a>
+        </p>
+      </article>
+
+      <article class="item">
+        <h3>4. Clinical AI Evaluation and Reporting Support</h3>
+        <p>
+          Focuses on evaluation frameworks, clinically meaningful validation, and AI-assisted
+          reporting support in radiology and endoscopy-adjacent contexts.
+        </p>
+        <p class="meta">
+          Publicly documented examples include multicenter chest X-ray AI evaluation work and
+          reporting-support invention themes.
+        </p>
+        <p>
+          <a href="/publications">Publications</a> · <a href="/patents">Patents</a>
+        </p>
+      </article>
+
+      <article class="item">
+        <h3>5. Workflow-Oriented Healthcare AI</h3>
+        <p>
+          Centers on integrating AI into day-to-day clinical operations, including reporting,
+          documentation, interoperability, and workflow orchestration.
+        </p>
+        <p class="meta">
+          Representative systems-level direction includes endoscopy workflow management and
+          AI-enabled clinical workflow support.
+        </p>
+        <p>
+          <a href="/projects">Projects</a> · <a href="/products">Products</a>
+        </p>
+      </article>
+
+      <article class="item">
+        <h3>6. Generative and Agentic AI in Healthcare</h3>
+        <p>
+          Explores practical use of generative and agentic AI for healthcare prototyping,
+          education, and workflow support, with emphasis on reliability and evaluation.
+        </p>
+        <p class="meta">
+          This includes retrieval-augmented patterns, agentic workflows, and implementation-focused
+          teaching and mentoring.
+        </p>
+        <p>
+          <a href="/teaching">Teaching</a> · <a href="/projects">Projects</a> · <a href="/writing">Writing</a>
+        </p>
+      </article>
+    </div>
+  </Section>
+</BaseLayout>
